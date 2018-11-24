@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <title>Chat Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container" >
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="pull-right">
+            <a href="/" class="brand">Created on 2018.11.25</a>
+          </div>
+        </div>
+      </div>
+      <div class="page-header">
+        <h1>마니또 뽑기!!!</h1>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <ul class="nav nav-list well">
+            <li class="nav-header">Your Name에 이름 3글자를 입력하세요.<br> 그리고 제출 버튼을 누르세요.<br>12월 15일에 마니또가 공개됩니다!</li>
+            <li ng-repeat="user in roster" ng-bind="user">
+            </li>
+          </ul>
+        </div>
+        <br>
+        <div class="span9">
+          
+          <div class="row controls">
+            <form ng-submit="send()">
+              <div class="input-append span7">
+                <input id="yourname" type="text" class="span4" ng-model="text" placeholder="Your Name">
+                <input  type="submit" class="span1 btn btn-primary" value="제출" onclick="getname()">
+              </div>
+              <div class="span4"><input id="manitoname" type="text" class="input-block-level" placeholder="Your Manito"></div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/function_ajax.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function getname(){  
+        var name = document.getElementById('yourname').value;
+        ajax_selectmanitto(name);
+      }
+
+    </script>
+  </body>
+</html>
