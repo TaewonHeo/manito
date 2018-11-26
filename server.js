@@ -35,3 +35,5 @@ manitto.createtable();
 server.listen(process.env.PORT || 3001, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
 });
+
+module.exports = app;
