@@ -32,7 +32,6 @@ sql.init();
 manitto.createtable();
 
 
-server.listen(process.env.PORT || 5555, process.env.IP || "0.0.0.0", function(){
+server.listen(process.env.PORT || 3001, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
-  console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
